@@ -24,38 +24,42 @@ class TicTacToe {
 		this.turn = 1;
 		this.player = null;
 		this.winner = null;
+		let count = 0;
 		console.table(this.board);
 		console.log("Turn 1");
 		console.log("Player X lets make your first move!");
 	}
 
-
-	
-	gettingWinningPlayerByRow() {
-
-		
-		let count = 0;
-		
-		for(let row = 0; row < this.board.length; row++){
-			for (let field=0; field < this.board.length; field++){
-				if (this.board[row][0] === this.board[row][1] && this.board[row][0] === this.board[row][2]) {
-					this.winner = this.board[row][0];	
-				}
+	iterate() {
+		for(let row = 0; row < this.board.length; row++) {
+			for (let column=0; column < this.board.length; column++){
+				this.gettingWinningPlayerByRow(row);
+				this.gettingWinningPlayerByColumn(column);
+				this.gettingWinningPlayerByDiagonal();	
 			}
 		}
-
-		if(this.winner !== null){
-			console.log("Player:" + this.winner + " has won");
-		}
-		
+	}
+	
+	gettingWinningPlayerByRow(row) {
+		if (this.board[row][0] === this.board[row][1] && this.board[row][0] === this.board[row][2]) {
+			this.winner = this.board[row][0];	
+		}		
 	}
 
-	gettingWinningPlayerByColumn(){
-
+	gettingWinningPlayerByColumn(column){
+		if(this.board[0][column] === this.board[1][column] && this.board[0][column] === this.board[2][column]){
+			this.winner = this.board[0][column];
+		}
 	}
 
 	gettingWinningPlayerByDiagonal(){
-		
+		if(this.board[0][0] === this.board[1][1] && this.board[0][0] === this.board[2][2]){
+			this.winner = this.board[0][0];
+		}
+
+		if(this.board[0][2] === this.board[1][1] && this.board[0][0] === this.board[2][0]){
+			this.winner = this.board[0][2];
+		}
 	}
 
 	makeMove(y,x) {	
@@ -72,15 +76,18 @@ class TicTacToe {
 			this.player = (this.player === "X") ? "O" : "X";
 			console.log("Turn: "+ this.turn + "\n" +"Player "+this.player+" lets make your move!");
 			this.player = (this.player === "X") ? "O" : "X";
-			this.getWinner();
+			this.iterate();
+			this.checkIfWinner();
 		} else {
 			this.isGameOver();
 		}
 
 	}
 
-	getWinner(){
-		this.gettingWinningPlayerByRow();
+	checkIfWinner(){
+		if(this.winner !== null){
+			console.log("Player: " + this.winner + " has WON!!!!!!!");
+		}
 	}
 
 	isGameOver(){
