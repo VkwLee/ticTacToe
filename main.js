@@ -10,7 +10,7 @@ while (!tictactoe.isGameOver()) { // isGameOver
 	
 	tictactoe.updateToTalTurns();
 
-	console.log("\nTurn" + tictactoe.totalTurns + "\n");
+	console.log("\nTurn " + tictactoe.totalTurns + "\n");
 
 	if(tictactoe.totalTurns % 2 !== 0) {
 		console.log("Player " +  tictactoe.player1.name + " lets make your move!\n")

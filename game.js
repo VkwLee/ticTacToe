@@ -31,12 +31,10 @@ module.exports = class Game {
 	}
 
 	updateToTalTurns () {
-		
 		this.totalTurns = this.player1.turn + this.player2.turn + 1 ;
 	}
 
 	isGameOver(){
-		console.log(this.totalTurns,this.winner);
 		return this.totalTurns >= 9 || this.winner !== null;
 	}
 
@@ -78,7 +76,6 @@ module.exports = class Game {
 		if(this.gameBoard.board[0][column] !== null && this.gameBoard.board[0][column] === this.gameBoard.board[1][column] &&
 		   this.gameBoard.board[0][column] === this.gameBoard.board[2][column]){
 			this.winner = this.gameBoard.board[0][column];
-			console.log('byColumn', this.gameBoard.board[0][column]);
 		}
 	}
 
