@@ -1,0 +1,23 @@
+{
+  "name": "tictactoe",
+  "version": "1.0.0",
+  "description": "exercise game",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VkwLee/ticTacToe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VkwLee/ticTacToe/issues"
+  },
+  "homepage": "https://github.com/VkwLee/ticTacToe#readme",
+  "dependencies": {
+    "console.table": "^0.8.0",
+    "syncprompt": "^1.0.3"
+  }
+}
